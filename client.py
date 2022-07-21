@@ -6,10 +6,11 @@ import hmac
 import hashlib
 
 class WhiteBit:
-    def __init__(self,api_key,secret_key):
+    def __init__(self,api_key,secret_key,url):
         self.api_key = api_key
         self.secret_key = secret_key
         self.nonce = str(int(time.time()))
+        self.baseUrl = url
     
     def send_request_post(self,data,completeUrl):
         data_json = json.dumps(data, separators=(',', ':'))
@@ -24,7 +25,7 @@ class WhiteBit:
         resp = requests.post(completeUrl, headers=headers, data=data_json)
         return resp.json()
     
-    def send_request_get(completeUrl):
+    def send_request_get(self,completeUrl):
         headers = {
             'X-TXC-APIKEY': self.api_key
         }
@@ -183,4 +184,3 @@ class WhiteBit:
         }
         completeUrl = self.baseUrl + '/api/v4/order'
         return self.send_request_post(data,completeUrl)
-        
