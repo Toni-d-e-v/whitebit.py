@@ -3,6 +3,7 @@ This is a wrapper for WhiteBit api.
 ## Requirements
 ```
 requests
+```
 # Quickstart
 - Download client.py 
 ```
@@ -12,9 +13,6 @@ api_secret = 'YOUR_API_SECRET'
 api_url = "https://whitebit.com"
 clinet = WhiteBit(api_key,api_secret,api_url)
 print(clinet.get_ticker())
-```
-
-
 
 ```
 # Functions
